@@ -1,0 +1,11 @@
+https://www.kaggle.com/marsggbo/kaggle
+
+# 实体对齐
+https://github.com/yongzhuo/Keras-TextClassification
+https://jiandansuifeng.blog.csdn.net/article/details/88669129?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-2.base&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7Edefault-2.base
+
+
+
+#### neo4j的使用
+
+https://www.cnblogs.com/xiaopan-cp9/p/14246528.html
