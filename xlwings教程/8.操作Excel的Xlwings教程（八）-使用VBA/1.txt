@@ -1,0 +1,2 @@
+Debug.Print Application.UserLibraryPath
+C:\Users\LEGION\AppData\Roaming\Microsoft\AddIns\
