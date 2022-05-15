@@ -1,0 +1,23 @@
+import xlwings as xw
+
+file_name = '2222.xls'
+new_name = file_name+'x'
+
+app = xw.App(visible=False, add_book=False)
+app.display_alerts = False
+wb = app.books.open(file_name)   # 打开现有excel
+wb.api.SaveAs(new_name, 51)      # 参数 51 为xlsx格式。56为 Excel 97-2003的xls版本
+app.quit()
+
+
+Sub 宏1()
+'
+' 宏1 宏
+'
+
+'
+    ActiveSheet.ChartObjects("图表 2").Activate
+    ActiveChart.Legend.Select
+    ActiveChart.Legend.Select
+    Selection.Position = xlBottom
+End Sub
