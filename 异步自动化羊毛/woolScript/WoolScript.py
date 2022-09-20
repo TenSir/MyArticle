@@ -16,9 +16,9 @@ def woolscrapy(usename,password):
     course_click_res = book_course_task.courseTask()
 
 
-woolscrapy('16659003060','lxed152152')
-woolscrapy('18005453669','Th1520823@0602')
-woolscrapy('18650488276','1522856954@QQ.com')
+woolscrapy('166590','lxed1')
+woolscrapy('180054','Th152')
+woolscrapy('186504','15228@QQ.com')
 
 
 
