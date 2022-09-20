@@ -41,16 +41,18 @@ def click_every_book():
     print(cursorX)
     print(cursorY)
     time.sleep(0.6)
-    auto.SetCursorPos(cursorX + 20, cursorY + 50)
+    # auto.SetCursorPos(cursorX + 20, cursorY + 50)
+    auto.SetCursorPos(cursorX - 148, cursorY + 50)
     pyautogui.click()
 
     # 分享界面
-    time.sleep(5)
-    shareWin = auto.PaneControl(SubName='分享到微博')
+    time.sleep(1.5)
+    # shareWin = auto.PaneControl(SubName='分享到微博')
+    shareWin = auto.DocumentControl(Name='发送给QQ好友和群组')
     if shareWin:
-        shareWin.SendKeys('{Ctrl}w', waitTime=1)
-    time.sleep(1)
-    shareWin.SendKeys('{Ctrl}w', waitTime=1)
+        shareWin.SendKeys('{Ctrl}w', waitTime=0.5)
+    time.sleep(0.5)
+    shareWin.SendKeys('{Ctrl}w', waitTime=0.3)
 
 
 # 每一个课程
@@ -92,16 +94,18 @@ def click_every_course():
     print(cursorX)
     print(cursorY)
     time.sleep(0.8)
-    auto.SetCursorPos(cursorX + 20, cursorY + 50)
+    # auto.SetCursorPos(cursorX + 20, cursorY + 50)
+    auto.SetCursorPos(cursorX - 148, cursorY + 50)
     pyautogui.click()
 
     # 分享界面
-    time.sleep(5)
-    shareWin = auto.PaneControl(SubName='分享到微博')
+    time.sleep(1.5)
+    # shareWin = auto.PaneControl(SubName='分享到微博')
+    shareWin = auto.DocumentControl(Name='发送给QQ好友和群组')
     if shareWin:
-        shareWin.SendKeys('{Ctrl}w', waitTime=1)
-    time.sleep(1)
-    shareWin.SendKeys('{Ctrl}w', waitTime=1)
+        shareWin.SendKeys('{Ctrl}w', waitTime=0.5)
+    time.sleep(0.5)
+    shareWin.SendKeys('{Ctrl}w', waitTime=0.3)
 
 
 def bookTask():
@@ -212,5 +216,6 @@ def courseTask():
     return 'success'
 
 
+# click_every_book()
 # book_click_res = bookTask()
 # course_click_res = courseTask()

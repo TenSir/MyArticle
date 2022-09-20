@@ -1,64 +1,43 @@
-2022-08-11 20:22:55.869 myLogin.py[19] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:23:49.176 myLogin.py[19] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:25:30.267 myLogin.py[20] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:26:05.656 myLogin.py[20] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:28:08.689 myLogin.py[8] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: PaneControl}
-2022-08-11 20:29:24.119 myLogin.py[8] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: WindowControl}
-2022-08-11 20:32:21.198 myLogin.py[8] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: WindowControl}
-2022-08-11 20:32:37.340 myLogin.py[8] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: DocumentControl}
-2022-08-11 20:34:18.732 myLogin.py[8] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: DocumentControl}
-2022-08-11 20:34:40.907 myLogin.py[8] login -> Find Control Timeout(10s): {subName: '异步社区-致力于优质IT知识的出版和分享', ControlType: DocumentControl}
-2022-08-11 20:35:03.443 myLogin.py[8] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: DocumentControl}
-2022-08-11 20:35:18.227 myLogin.py[8] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:35:46.931 myLogin.py[8] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:36:24.463 myLogin.py[9] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:38:57.768 myLogin.py[8] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:40:48.941 myLogin.py[8] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:46:51.485 myLogin.py[18] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:47:13.154 myLogin.py[8] login -> Find Control Timeout(10s): {RegexName: 'Google Chrome', ControlType: PaneControl}
-2022-08-11 20:47:34.078 myLogin.py[19] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 20:53:30.907 myLogin.py[20] login -> Can not move cursor. TextControl's BoundingRectangle is (0,0,0,0)[0x0]. SearchProperties: {Name: '登录', ControlType: TextControl}
-2022-08-11 20:54:32.696 myLogin.py[8] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享 - Google Chrome', ControlType: PaneControl}
-2022-08-11 20:56:24.824 myLogin.py[29] login -> Find Control Timeout(10s): {Name: '请输入手机号码或邮箱', ControlType: EditControl}
-2022-08-11 20:59:00.234 myLogin.py[29] login -> Find Control Timeout(10s): {Name: '请输入手机号码或邮箱', ControlType: EditControl}
-2022-08-11 21:01:12.420 myLogin.py[17] login -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 21:02:41.871 myLogin.py[21] login -> Can not move cursor. TextControl's BoundingRectangle is (0,0,0,0)[0x0]. SearchProperties: {Name: '登录', ControlType: TextControl}
-2022-08-11 21:02:52.200 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
-2022-08-11 21:03:06.637 myLogin.py[21] login -> Can not move cursor. TextControl's BoundingRectangle is (0,0,0,0)[0x0]. SearchProperties: {Name: '登录', ControlType: TextControl}
-2022-08-11 21:03:16.943 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
-2022-08-11 21:09:37.264 myLogin.py[41] login -> Find Control Timeout(10s): {Name: '登录', ControlType: TextControl}
-2022-08-11 21:29:42.993 myLogin.py[46] login -> Find Control Timeout(10s): {Name: '退出', ControlType: TextControl}
-2022-08-11 21:31:18.339 myLogin.py[47] login -> Find Control Timeout(10s): {Name: '退出', ControlType: TextControl}
-2022-08-11 21:37:19.440 bookTask.py[10] bookTask -> Find Control Timeout(10s): {Name: '退出', ControlType: TextControl}
-2022-08-11 21:39:01.354 bookTask.py[10] bookTask -> Find Control Timeout(10s): {Name: '退出', ControlType: TextControl}
-2022-08-11 21:39:59.872 bookTask.py[8] bookTask -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享 - Google Chrome', ControlType: DocumentControl}
-2022-08-11 21:40:19.725 bookTask.py[8] bookTask -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: DocumentControl}
-2022-08-11 21:40:33.954 bookTask.py[8] bookTask -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: DocumentControl}
-2022-08-11 21:41:07.214 bookTask.py[8] bookTask -> Find Control Timeout(10s): {ClassName: 'Chrome_RenderWidgetHostHWND', ControlType: DocumentControl}
-2022-08-11 21:42:10.640 bookTask.py[8] bookTask -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: DocumentControl}
-2022-08-11 22:06:08.042 bookTask.py[33] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-11 22:07:57.100 bookTask.py[35] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-11 22:10:16.691 bookTask.py[36] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-11 22:12:02.896 bookTask.py[36] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-11 22:12:31.599 bookTask.py[36] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-11 22:15:33.095 bookTask.py[36] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-11 22:16:00.500 bookTask.py[36] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-11 22:17:02.793 bookTask.py[36] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-11 22:17:43.064 bookTask.py[35] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-11 22:18:03.910 bookTask.py[35] bookTask -> Find Control Timeout(10s): {Name: '链接', ControlType: HyperlinkControl}
-2022-08-12 19:57:14.733 bookTask.py[20] bookTask -> Find Control Timeout(10s): {Name: '综合排序', ControlType: TextControl}
-2022-08-12 21:30:13.601 bookTask.py[101] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-12 21:38:04.130 bookTask.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-13 07:41:58.941 bookTask.py[127] courseTask -> Find Control Timeout(10s): {Name: '综合排序', ControlType: TextControl}
-2022-08-13 09:05:24.653 bookTask.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-13 09:17:42.896 bookTask.py[69] click_every_course -> Find Control Timeout(10s): {Name: 'Breadcrumb', LocalizedControlType: '导航', ControlType: GroupControl}
-2022-08-13 09:45:52.121 book_course_task.py[110] bookTask -> Find Control Timeout(10s): {SubName: '异步社区-致力于优质IT知识的出版和分享', ControlType: PaneControl}
-2022-08-13 10:15:56.677 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-15 08:42:20.756 book_course_task.py[69] click_every_course -> Find Control Timeout(10s): {Name: 'Breadcrumb', LocalizedControlType: '导航', ControlType: GroupControl}
-2022-08-16 08:10:13.054 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-16 08:11:45.815 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-16 08:12:41.931 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-16 08:14:06.068 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-16 08:16:09.275 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-16 08:18:47.812 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
-2022-08-16 08:21:01.622 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-08-23 19:53:12.436 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-08-24 19:40:39.005 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-08-24 19:41:12.749 myLogin.py[49] login -> Find Control Timeout(10s): {Name: '退出', ControlType: TextControl}
+2022-08-24 19:43:33.670 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-08-24 19:53:13.243 myLogin.py[23] login -> Find Control Timeout(10s): {Name: '登录', ControlType: TextControl}
+2022-08-24 19:53:35.529 myLogin.py[23] login -> Find Control Timeout(10s): {Name: '登录', ControlType: TextControl}
+2022-08-25 20:04:47.002 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-08-27 08:53:45.219 book_course_task.py[102] click_every_course -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-08-28 08:16:12.106 book_course_task.py[9] click_every_book -> Find Control Timeout(10s): {SubName: '异步社区-致力于优质IT知识的出版和分享', ControlType: PaneControl}
+2022-08-29 19:14:07.089 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-02 19:33:39.325 myLogin.py[23] login -> Find Control Timeout(10s): {Name: '登录', ControlType: TextControl}
+2022-09-03 08:36:50.016 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-03 08:38:52.778 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-06 19:28:02.324 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-06 19:30:42.549 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-07 15:57:34.389 book_course_task.py[102] click_every_course -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-08 18:53:09.812 book_course_task.py[9] click_every_book -> Find Control Timeout(10s): {SubName: '异步社区-致力于优质IT知识的出版和分享', ControlType: PaneControl}
+2022-09-08 18:56:13.973 myLogin.py[23] login -> Find Control Timeout(10s): {Name: '登录', ControlType: TextControl}
+2022-09-10 10:49:56.895 myLogin.py[8] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享 - Google Chrome', ControlType: PaneControl}
+2022-09-12 07:39:49.899 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-12 07:41:48.175 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-13 19:15:23.106 book_course_task.py[9] click_every_book -> Find Control Timeout(10s): {SubName: '异步社区-致力于优质IT知识的出版和分享', ControlType: PaneControl}
+2022-09-13 19:16:26.314 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-15 19:51:29.885 myLogin.py[8] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享 - Google Chrome', ControlType: PaneControl}
+2022-09-15 19:57:17.238 book_course_task.py[59] click_every_course -> Find Control Timeout(10s): {SubName: '异步社区-致力于优质IT知识的出版和分享', ControlType: PaneControl}
+2022-09-15 20:00:52.807 book_course_task.py[59] click_every_course -> Find Control Timeout(10s): {SubName: '异步社区-致力于优质IT知识的出版和分享', ControlType: PaneControl}
+2022-09-15 20:11:42.226 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-17 18:30:16.864 book_course_task.py[102] click_every_course -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-18 08:45:38.971 book_course_task.py[102] click_every_course -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-19 07:08:02.488 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-19 07:10:36.940 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-20 06:49:42.514 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-20 06:55:48.881 book_course_task.py[137] bookTask -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享', ControlType: DocumentControl}
+2022-09-20 06:56:34.329 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-20 06:56:56.087 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-20 06:58:03.907 book_course_task.py[51] click_every_book -> Find Control Timeout(10s): {SubName: '分享到微博', ControlType: PaneControl}
+2022-09-20 07:00:35.276 book_course_task.py[52] click_every_book -> Find Control Timeout(10s): {SubName: '发送给QQ好友或群组', ControlType: PaneControl}
+2022-09-20 21:12:46.932 test.py[29] <module> -> Find Control Timeout(10s): {SubName: '发送给QQ好友或群组', ControlType: PaneControl}
+2022-09-20 21:13:11.322 test.py[29] <module> -> Find Control Timeout(10s): {SubName: '好友或群组', ControlType: PaneControl}
+2022-09-20 21:16:23.475 myLogin.py[59] login -> Find Control Timeout(10s): {Name: '签到', ControlType: GroupControl}
+2022-09-20 21:17:37.607 book_course_task.py[53] click_every_book -> Find Control Timeout(10s): {SubName: '发送给QQ好友或群组', ControlType: DocumentControl}
+2022-09-20 21:19:45.851 book_course_task.py[19] click_every_book -> Find Control Timeout(10s): {Name: 'Breadcrumb', LocalizedControlType: '导航', ControlType: GroupControl}
+2022-09-20 21:21:48.557 book_course_task.py[53] click_every_book -> Find Control Timeout(10s): {Name: '发送给QQ好友和群组', ControlType: DocumentControl}

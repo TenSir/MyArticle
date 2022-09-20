@@ -21,3 +21,4 @@
 #     # ControlType: UIA_GroupControlTypeId(0xC36A)
 #     signControl = auto.GroupControl(Name = '签到')
 #     signControl.Click(waitTime=0.5)
+
