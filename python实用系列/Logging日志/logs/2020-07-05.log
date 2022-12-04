@@ -1,0 +1,16 @@
+2020-07-05 20:38:47 test_sef_def_logging.py [line:6] INFO: 代码开始运行的时间2020-07-05 20:38:47.151953
+2020-07-05 20:38:47 test_sef_def_logging.py [line:7] DEBUG: 看看debug
+2020-07-05 20:38:47 test_sef_def_logging.py [line:8] ERROR: This is a error
+
+
+
+
+
+
+
+
+
+
+
+
+

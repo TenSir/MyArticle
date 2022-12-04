@@ -1,0 +1,3 @@
+WARNING 1.py:66 waring，用来用来打印警告信息
+ERROR 1.py:67 error，一般用来打印一些错误信息
+CRITICAL 1.py:68 critical，用来打印一些致命的错误信息，等级最高

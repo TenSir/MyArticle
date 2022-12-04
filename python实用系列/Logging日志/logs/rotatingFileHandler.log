@@ -1,0 +1,3 @@
+2020-07-05 11:30:26 - config_test - WARNING -12740 : warn
+2020-07-05 11:30:26 - config_test - ERROR -12740 : error
+2020-07-05 11:30:26 - config_test - CRITICAL -12740 : critical
