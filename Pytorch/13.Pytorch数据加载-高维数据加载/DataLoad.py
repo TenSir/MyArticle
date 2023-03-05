@@ -19,7 +19,7 @@
 #     batch_size=32,
 #     shuffle=True
 # )
-#
+
 # for inx,(x,y) in enumerate(Loader):
 #     print('inx:',inx)
 #     print('x:',x)

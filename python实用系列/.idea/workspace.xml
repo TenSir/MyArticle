@@ -27,11 +27,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "F:/MyArticle/python实用系列",
+    "last_opened_file_path": "F:/MyArticle/异步自动化羊毛",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.functions_wraps的使用">
+  <component name="RunManager" selected="Python.静态方法01">
     <configuration name="打开浏览器并重试" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="python实用系列" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -46,6 +46,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/装饰器/打开浏览器并重试.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="静态方法01" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="python实用系列" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/静态方法" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/静态方法/静态方法01.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -166,6 +188,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.静态方法01" />
         <item itemvalue="Python.functions_wraps的使用" />
         <item itemvalue="Python.ex_3" />
         <item itemvalue="Python.打开浏览器并重试" />
@@ -196,6 +219,10 @@
       <workItem from="1666352023339" duration="1516000" />
       <workItem from="1666438583174" duration="16000" />
       <workItem from="1670140148227" duration="2673000" />
+      <workItem from="1670237150813" duration="26000" />
+      <workItem from="1677905879059" duration="7334000" />
+      <workItem from="1677928667097" duration="4285000" />
+      <workItem from="1677989764167" duration="7000" />
     </task>
     <servers />
   </component>
@@ -207,6 +234,7 @@
     <SUITE FILE_PATH="coverage/python$functions_wraps.coverage" NAME="functions_wraps的使用 Coverage Results" MODIFIED="1666356451103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/装饰器/2.有参数的装饰器" />
     <SUITE FILE_PATH="coverage/python$ex_1.coverage" NAME="ex_1 Coverage Results" MODIFIED="1664091741572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/装饰器" />
     <SUITE FILE_PATH="coverage/python$.coverage" NAME="可选参数装饰器 Coverage Results" MODIFIED="1665919605320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/装饰器/2.有参数的装饰器" />
+    <SUITE FILE_PATH="coverage/python$01.coverage" NAME="静态方法01 Coverage Results" MODIFIED="1677933674300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/静态方法" />
     <SUITE FILE_PATH="coverage/python$ex_3.coverage" NAME="ex_3 Coverage Results" MODIFIED="1664713828749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/装饰器" />
   </component>
 </project>
