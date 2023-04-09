@@ -126,6 +126,47 @@ for epoch in range(num_epochs):
 
 
 
+# 绘图和预测
+def get_fmnist_labels(labels):
+    # 获取对应的标签
+    text_labels = ['t-shirt', 'trouser', 'pullover', 'dress', 'coat', 'sandal', 'shirt', 'sneaker', 'bag', 'ankle boot']
+    return [text_labels[int(i)] for i in labels]
+
+
+from matplotlib import pyplot as plt
+def display_images(imgs, num_rows, num_cols, scale=3,titles=None,):
+    # 设置图像画图大小
+    figsize = (num_cols * scale, num_rows * scale)
+    _, axes = plt.subplots(num_rows, num_cols, figsize=figsize)
+    axes = axes.flatten()
+    for i, (ax, img) in enumerate(zip(axes, imgs)):
+        if torch.is_tensor(img):
+            # 图⽚张量
+            ax.imshow(img.numpy())
+        else:
+            # PIL图⽚
+            ax.imshow(img)
+        ax.axes.get_xaxis().set_visible(True)
+        ax.axes.get_yaxis().set_visible(True)
+        if titles:
+            ax.set_title(titles[i])
+    # 显示图片
+    plt.show()
+    return axes
+
+# 预测
+def predict(net, test_data, n=6):
+    for X, y in test_data:
+        #在测试的数据集中拿出一个样本
+        break
+    # 取出真实标签
+    trues = get_fmnist_labels(y)
+    # 取出预测标签
+    preds = get_fmnist_labels(net(X).argmax(axis=1))
+    titles = [true +'\n' + pred for true, pred in zip(trues, preds)]
+    display_images(
+        X[0:n].reshape((n, 28, 28)), 1, n, titles=titles[0:n])
+predict(net, test_data)
 
 
 
