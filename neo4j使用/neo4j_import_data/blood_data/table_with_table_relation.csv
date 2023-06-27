@@ -1,0 +1,9 @@
+from_id,to_id,relation
+1,2,TABLEFLOW
+2,3,TABLEFLOW
+3,4,TABLEFLOW
+4,5,TABLEFLOW
+3,5,TABLEFLOW
+
+
+

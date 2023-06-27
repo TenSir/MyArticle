@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+import open_url_yb
+import myLogin
+import book_course_task
+import addNewPage
+
+
+def woolscrapy(usename, password):
+    open_res = open_url_yb.open_url_yb()
+    login_res = myLogin.login(usename, password)
+    # new = addNewPage.addnewpage()
+    book_click_res = book_course_task.bookTask()
+    course_click_res = book_course_task.courseTask()
+
+
+# woolscrapy('16659003060', 'Th0823@0602')
+# woolscrapy('15980876028', 'Th1520823@0602')
+woolscrapy('18650488276', '1522856954@QQ.com')
+woolscrapy('18350200950', '1522856954@QQ.com')

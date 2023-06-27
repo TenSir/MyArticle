@@ -1,0 +1,9 @@
+Id,Name,SimchinaName,Belongdb,type
+1,Math,数学表,Train,TABLE
+2,English,英语表,Train,TABLE
+3,Probability,概率论表,Train,TABLE
+4,Computer,计算机科学表,Test,TABLE
+5,AI,人工智能表,Test,TABLE
+
+
+

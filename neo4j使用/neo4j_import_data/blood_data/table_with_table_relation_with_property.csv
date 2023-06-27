@@ -1,0 +1,10 @@
+from_id,property_1,property_2,to_id,relation
+1,2,pro1,pro_11,TABLEFLOW
+2,3,pro2,pro_22,TABLEFLOW
+3,4,pro3,pro_33,TABLEFLOW
+4,5,pro4,pro_44,TABLEFLOW
+3,5,pro5,pro_55,TABLEFLOW
+
+
+
+

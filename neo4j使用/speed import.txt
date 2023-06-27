@@ -1,0 +1,47 @@
+
+预热语句：
+MATCH (n)
+OPTIONAL MATCH (n)-[r]->()
+RETURN count(n.prop) + count(r.prop);
+
+
+
+https://www.freesion.com/article/2503957016/
+
+
+explain  XXX语句 来查看是否使用了索引数据
+
+
+
+索引：
+
+CREATE INDEX ON :Person(item)
+DROP INDEX ON :Person(item)
+
+
+# 创建唯一索引
+create constraint on (n:Person) assert n.name is unique
+
+# 删除唯一索引
+drop constraint on (n:Person) assert n.name is unique
+
+
+merge的时候通过id进行匹配，然后其他属性通过set的方式进行赋值
+
+# 建立索引之前
+using periodic commit 1000
+load csv from 'file:///attacker.csv' as line
+merge (:Attacker{id:toInteger(line[0]),ip:line[1],country:line[2],province:line[3],city:line[4]});
+
+
+CREATE INDEX ON :Attacker2(id)
+
+using periodic commit 1000
+load csv from 'file:///attacker.csv' as line
+merge (attack:Attacker2{id:toInteger(line[0])})
+on create set attack.ip=line[1],attack.country=line[2],attack.province=line[3],attack.city=line[4];
+
+
+
+call db.schema.visualization
+

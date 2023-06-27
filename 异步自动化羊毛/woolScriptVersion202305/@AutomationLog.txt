@@ -1,0 +1,23 @@
+2023-04-08 08:02:19.443 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
+2023-04-08 08:19:18.822 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
+2023-04-09 07:52:05.952 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
+2023-04-09 07:53:38.635 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
+2023-04-09 08:04:00.766 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
+2023-04-09 08:07:14.027 myLogin.py[7] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享 - Google Chrome', ControlType: PaneControl}
+2023-04-13 18:07:04.524 book_course_task.py[106] click_every_course -> Find Control Timeout(10s): {Name: '发送给QQ好友和群组', ControlType: DocumentControl}
+2023-04-19 14:09:42.232 myLogin.py[7] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享 - Google Chrome', ControlType: PaneControl}
+2023-04-24 08:34:49.558 book_course_task.py[9] click_every_book -> Find Control Timeout(10s): {SubName: '异步社区-致力于优质IT知识的出版和分享', ControlType: PaneControl}
+2023-04-26 15:09:19.664 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
+2023-05-05 16:21:03.973 book_course_task.py[143] bookTask -> Find Control Timeout(10s): {Name: '出版时间', LocalizedControlType: '文本', ControlType: TextControl}
+2023-05-06 12:02:11.459 myLogin.py[21] login -> Find Control Timeout(10s): {Name: '登录', ControlType: TextControl}
+2023-05-08 08:47:15.492 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
+2023-05-16 08:39:30.529 myLogin.py[7] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享 - Google Chrome', ControlType: PaneControl}
+2023-05-17 08:41:06.101 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
+2023-05-31 08:22:50.428 myLogin.py[25] login -> Find Control Timeout(10s): {Name: '登录', ControlType: DocumentControl}
+2023-06-06 08:24:45.881 myLogin.py[7] login -> Find Control Timeout(10s): {Name: '异步社区-致力于优质IT知识的出版和分享 - Google Chrome', ControlType: PaneControl}
+2023-06-06 08:26:06.654 myLogin.py[21] login -> Find Control Timeout(10s): {Name: '登录', ControlType: TextControl}
+2023-06-15 08:37:58.970 myLogin.py[21] login -> Find Control Timeout(10s): {Name: '登录', ControlType: TextControl}
+2023-06-15 08:56:58.367 book_course_task.py[106] click_every_course -> Find Control Timeout(10s): {Name: '发送给QQ好友和群组', ControlType: DocumentControl}
+2023-06-16 08:36:26.842 myLogin.py[21] login -> Find Control Timeout(10s): {Name: '登录', ControlType: TextControl}
+2023-06-16 08:47:46.771 book_course_task.py[71] click_every_course -> Find Control Timeout(10s): {Name: 'Breadcrumb', LocalizedControlType: '导航', ControlType: GroupControl}
+2023-06-17 08:47:51.257 myLogin.py[47] login -> Find Control Timeout(10s): {Name: '退出', ControlType: TextControl}

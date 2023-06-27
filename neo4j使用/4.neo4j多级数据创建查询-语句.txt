@@ -1,0 +1,124 @@
+# 建立表结点，同时添加属性：
+
+CREATE (n:TABLE{name:"Math",SimchinaName:"数学表",id:1,Belongdb:"Train",type:"TABLE"});
+CREATE (n:TABLE{name:"English",SimchinaName:"英语表",id:2,Belongdb:"Train",type:"TABLE"});
+CREATE (n:TABLE{name:"Probability",SimchinaName:"概率论表",id:3,Belongdb:"Train",type:"TABLE"});
+CREATE (n:TABLE{name:"Computer",SimchinaName:"计算机科学表",id:4,Belongdb:"Test",type:"TABLE"});
+CREATE (n:TABLE{name:"AI",SimchinaName:"人工智能表",id:5,Belongdb:"Test",type:"TABLE"});
+
+
+
+# 建立字段节点，同时添加一些属性
+
+CREATE (n:COLUMN{name:"MathAnalysis",SimchinaName:"数学分析",id:1,type:"COLUMN",tableName:"Math",Belongtb:"数学表"});
+CREATE (n:COLUMN{name:"AdvAlgebra",SimchinaName:"高等代数",id:2,type:"COLUMN",tableName:"Math",Belongtb:"数学表"});
+CREATE (n:COLUMN{name:"AnaGeometry",SimchinaName:"解析几何",id:3,type:"COLUMN",tableName:"Math",Belongtb:"数学表"});
+CREATE (n:COLUMN{name:"FunctionReal",SimchinaName:"实变函数",id:4,type:"COLUMN",tableName:"Math",Belongtb:"数学表"});
+CREATE (n:COLUMN{name:"SimEnglish",SimchinaName:"简单英语",id:5,type:"COLUMN",tableName:"English",Belongtb:"英语表"});
+CREATE (n:COLUMN{name:"MidEnglish",SimchinaName:"中级英语",id:6,type:"COLUMN",tableName:"English",Belongtb:"英语表"});
+CREATE (n:COLUMN{name:"HighEnglish",SimchinaName:"高级英语",id:7,type:"COLUMN",tableName:"English",Belongtb:"英语表"});
+CREATE (n:COLUMN{name:"FourEnglish",SimchinaName:"专四英语",id:8,type:"COLUMN",tableName:"English",Belongtb:"英语表"});
+CREATE (n:COLUMN{name:"EightEnglish",SimchinaName:"专八英语",id:9,type:"COLUMN",tableName:"English",Belongtb:"英语表"});
+CREATE (n:COLUMN{name:"SimPro",SimchinaName:"简单概率论",id:10,type:"COLUMN",tableName:"Probability",Belongtb:"概率论表"});
+CREATE (n:COLUMN{name:"MidPro",SimchinaName:"中级概率论",id:11,type:"COLUMN",tableName:"Probability",Belongtb:"概率论表"});
+CREATE (n:COLUMN{name:"HighPro",SimchinaName:"高级概率论",id:12,type:"COLUMN",tableName:"Probability",Belongtb:"概率论表"});
+CREATE (n:COLUMN{name:"OtherPro",SimchinaName:"其他概率论",id:13,type:"COLUMN",tableName:"Probability",Belongtb:"概率论表"});
+CREATE (n:COLUMN{name:"ComScience",SimchinaName:"计算机科学",id:14,type:"COLUMN",tableName:"Computer",Belongtb:"计算机科学表"});
+CREATE (n:COLUMN{name:"OperSystem",SimchinaName:"操作系统",id:15,type:"COLUMN",tableName:"Computer",Belongtb:"计算机科学表"});
+CREATE (n:COLUMN{name:"ComOrganization",SimchinaName:"组成原理",id:16,type:"COLUMN",tableName:"Computer",Belongtb:"计算机科学表"});
+CREATE (n:COLUMN{name:"CAdd",SimchinaName:"C语言",id:17,type:"COLUMN",tableName:"Computer",Belongtb:"计算机科学表"});
+CREATE (n:COLUMN{name:"DeepLearn",SimchinaName:"深度学习",id:18,type:"COLUMN",tableName:"AI",Belongtb:"人工智能表"});
+CREATE (n:COLUMN{name:"MeLearn",SimchinaName:"机器学习",id:19,type:"COLUMN",tableName:"AI",Belongtb:"人工智能表"});
+
+
+# 建立表与表之间的关系
+MATCH (m:TABLE), (n:TABLE) WHERE m.id=1 and n.id=2 CREATE (m)-[r:TABLEFLOW]->(n);
+MATCH (m:TABLE), (n:TABLE) WHERE m.id=2 and n.id=3 CREATE (m)-[r:TABLEFLOW]->(n);
+MATCH (m:TABLE), (n:TABLE) WHERE m.id=3 and n.id=4 CREATE (m)-[r:TABLEFLOW]->(n);
+MATCH (m:TABLE), (n:TABLE) WHERE m.id=4 and n.id=5 CREATE (m)-[r:TABLEFLOW]->(n);
+MATCH (m:TABLE), (n:TABLE) WHERE m.id=3 and n.id=5 CREATE (m)-[r:TABLEFLOW]->(n);
+
+
+# 建立表与字段的关系
+match (m:TABLE), (n:COLUMN) WHERE m.id=1 and n.id=1 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=1 and n.id=2 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=1 and n.id=3 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=1 and n.id=4 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=2 and n.id=5 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=2 and n.id=6 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=2 and n.id=7 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=2 and n.id=8 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=2 and n.id=9 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=3 and n.id=10 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=3 and n.id=11 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=3 and n.id=12 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=3 and n.id=13 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=4 and n.id=14 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=4 and n.id=15 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=4 and n.id=16 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=4 and n.id=17 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=5 and n.id=18 CREATE (m)-[r:hasColumn]->(n);
+match (m:TABLE), (n:COLUMN) WHERE m.id=5 and n.id=19 CREATE (m)-[r:hasColumn]->(n);
+
+
+# 建立字段与字段之间的关系
+match (m:COLUMN), (n:COLUMN) WHERE m.id=1 and n.id=5 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=2 and n.id=6 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=3 and n.id=7 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=4 and n.id=8 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=5 and n.id=10 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=6 and n.id=11 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=7 and n.id=12 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=8 and n.id=13 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=10 and n.id=14 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=11 and n.id=15 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=12 and n.id=16 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=13 and n.id=17 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=13 and n.id=18 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=14 and n.id=17 CREATE (m)-[r:COLUMNFLOW]->(n);
+match (m:COLUMN), (n:COLUMN) WHERE m.id=14 and n.id=18 CREATE (m)-[r:COLUMNFLOW]->(n);
+
+
+# 查询 表与表
+MATCH (a:TABLE)-[r:TABLEFLOW]-(b:TABLE)
+WHERE a.name="AI"
+RETURN a,b
+
+
+MATCH (a:TABLE)-[r:TABLEFLOW]-(b:TABLE)
+WHERE a.id = 5
+RETURN a,b
+
+MATCH (a:TABLE)-[r:TABLEFLOW*1..3]-(b:TABLE)
+WHERE a.id = 5
+RETURN a,b
+
+
+
+# 字段与字段
+MATCH (m:COLUMN)-[:COLUMNFLOW*1..3]-(n:COLUMN)
+WHERE m.id=5
+RETURN m,n
+
+MATCH (m:COLUMN)-[:COLUMNFLOW*1..12]-(n:COLUMN)
+WHERE m.id=5
+RETURN m,n
+
+
+
+# 查询关系信息
+MATCH p=(m:TABLE)-[r:TABLEFLOW*1..20]->(:TABLE) WHERE m.id=1 RETURN p
+MATCH p=(m:TABLE)-[r:TABLEFLOW*1..20]->(:TABLE) WHERE m.id=3 RETURN p
+
+# 上述查询关系的方式后期可能不在使用
+MATCH p=(m:TABLE)-[r:TABLEFLOW*1..20]->(:TABLE) WITH* RETURN p
+
+
+
+# 多跳查询
+match data=(m:TABLE)-[*1..3]->(n:TABLE) return data
+
+MATCH (m:TABLE)-[r:TABLEFLOW]->(n:TABLE) 
+WITH m, count(n) AS nums
+WHERE nums > 1
+return m

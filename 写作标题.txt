@@ -1,0 +1,26 @@
+1. TorchData  PyTorch新的数据构建方式
+2. Torch中的损失函数(表达式和代码实现) 
+3. 卷积层特征图的可视化
+
+
+pytorch数据操作与预处理
+
+3. torch.nn模块
+3.1 卷积层
+3.2 池化层
+3.3 激活函数
+3.5 循环层
+3.6 全连接层
+
+
+pywin32教程
+
+1. 特征筛选的方法对比 :IV、feature important、shap、Boruta
+
+
+# 卷积 池化 边缘检测的案例
+https://blog.csdn.net/qq_38737428/article/details/121780217
+
+
+# Pytorch
+https://www.w3cschool.cn/pytorch/pytorch-mrni3btn.html
