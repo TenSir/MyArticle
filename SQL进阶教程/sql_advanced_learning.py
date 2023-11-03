@@ -1,16 +1,13 @@
-import psycopg2
-import pandas as pd
-pd.options.display.max_columns = None
-pd.options.display.max_rows = None
 
-conn = psycopg2.connect(host="localhost", user="postgres", password="", port=5432, database="sql_advanced")
-cursor = conn.cursor()
+
 
 # 4
 sql = """
-CREATE TABLE poptbl (
+CREATE TABLE poptbl 
+(
 	pref_name VARCHAR(32) PRIMARY KEY,
-	population INTEGER NOT NULL);
+	population INTEGER NOT NULL
+);
 INSERT INTO poptbl VALUES
 	('德岛', 100),
 	('香川', 200),
