@@ -13,3 +13,4 @@ class SeqDataLoader:
 data_iter = SeqDataLoader(11, 111, use_random_iter=False, max_tokens = 1111)
 print(data_iter)
 print(data_iter.batch_size)
+
