@@ -1,0 +1,465 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1fa367f7-3e8f-4e1d-b8ef-2231d793a0e2",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "9d7eeb1a-7aa0-410b-bcce-eb199610b29e",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1      1.2345\n",
+       "2    100.0000\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 2,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50])\n",
+    "s1 = s[s>0]\n",
+    "s1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "2c68fdc2-9b6a-4674-a697-52f2f3297176",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[0    False\n",
+       " 1     True\n",
+       " 2     True\n",
+       " 3    False\n",
+       " dtype: bool]"
+      ]
+     },
+     "execution_count": 3,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "[s>0]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e5e40fcc-3292-4afb-b4bf-66b835bcddb4",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "d2fb3a05-895e-43f4-b3cd-13a90b330a72",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2    100.0\n",
+       "3    -50.0\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50])\n",
+    "s2 = s[s % 2 == 0]\n",
+    "s2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "4b306088-ffa7-48c0-9a4d-e5d14dbaf078",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0    100.0\n",
+       "1    -50.0\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50])\n",
+    "s2 = s[s % 2 == 0]\n",
+    "# s2.reset_index(drop=True)\n",
+    "s2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "741137a3-abef-4667-b4ad-727052f22257",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "b     1.2345\n",
+       "d   -50.0000\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50], index=['a', 'b', 'c', 'd'])\n",
+    "s3 = s[s.index.isin(['b','d'])]\n",
+    "s3"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "35d7604a-63d6-49cf-a38e-20adb05c54ca",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0     -1.0000\n",
+       "1      1.2345\n",
+       "2    100.0000\n",
+       "3    -50.0000\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 7,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "ss = pd.Series([-1, 1.2345, 100, -50])\n",
+    "ss"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "f6e9bdda-da39-427b-b2c8-56a88c679315",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2    100.0\n",
+       "3    -50.0\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s4 = ss[ss.index > 1]\n",
+    "s4"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "aa6b8fb1-88b7-4f27-a48f-dd38728592cf",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>numbers</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>1.2345</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>-50.0000</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   numbers\n",
+       "1   1.2345\n",
+       "3 -50.0000"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50],name = 'RNUM')\n",
+    "df = s.to_frame(name='numbers')\n",
+    "df[df['numbers'].isin([1.2345, -50])]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "id": "961dc008-716a-485d-b161-bf735749a0c0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "<class 'pandas.core.frame.DataFrame'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(type(df))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "id": "52c551be-7ddd-4eb7-a05f-2c6658191b4b",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0    -1.0\n",
+       "1     NaN\n",
+       "2     NaN\n",
+       "3   -50.0\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50])\n",
+    "s5 = s.where(s<0)\n",
+    "s5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "id": "b3e04175-c4e3-4a8b-8932-844959ff282c",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0    -1.0\n",
+       "3   -50.0\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 22,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s5 = s5.dropna()\n",
+    "s5"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "id": "9635757b-19fc-4aa6-a9fa-bf37ecbfe43d",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "0    -50.0000\n",
+       "1      1.2345\n",
+       "2    100.0000\n",
+       "3    -50.0000\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 23,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50])\n",
+    "s6 = s.mask(s<0, -50)\n",
+    "s6"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "835b9c07-6397-4c71-a07f-e56e87064f49",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "id": "a420f382-5d85-4f26-b97b-a647456ef285",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "1      1.2345\n",
+       "2    100.0000\n",
+       "Name: RNUM, dtype: float64"
+      ]
+     },
+     "execution_count": 27,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50],name = 'RNUM')\n",
+    "s7 = s.drop(s[s<0].index)\n",
+    "s7"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "id": "f25735ba-e8d3-48ba-94d3-7b2dcc4700dd",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "a    -1.0\n",
+       "d   -50.0\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50], index=['a', 'b', 'c', 'd'])\n",
+    "s8 = s.loc[['a','d']]\n",
+    "s8"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 31,
+   "id": "e1152e91-e28f-4345-9078-84acca6bd2c7",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "2    100.0\n",
+       "dtype: float64"
+      ]
+     },
+     "execution_count": 31,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "s = pd.Series([-1, 1.2345, 100, -50])\n",
+    "s9 = s.loc[s> 2]\n",
+    "s9"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "321a4f81-8d70-4c91-9b9a-bea114b0ece8",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
