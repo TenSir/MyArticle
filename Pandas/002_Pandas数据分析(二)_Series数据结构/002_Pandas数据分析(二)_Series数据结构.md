@@ -1,4 +1,4 @@
-# Pandas基础教程二_Series数据结构
+# Pandas数据分析(二)_Series数据结构
 
 大家好，这里是**【Python机器学习算法与实践】**，之前在基础知识中有提及到Pandas中有两个重要的数据结构，Series和DataFrame。本期推文将先给大家讲解一些Pandas中的数据结构Series，之后再讲解DataFrame。话不说是，我们一起来学习一下。
 

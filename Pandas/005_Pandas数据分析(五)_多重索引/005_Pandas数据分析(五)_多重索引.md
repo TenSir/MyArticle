@@ -248,7 +248,7 @@ array([[1, 3],
 ```
 
 如果我们我们使用不同的颜色来标记了 上述生成的DataFrame 的结构，则有：
-![](2.png)
+![](7.png)
 
 通过上述的图我们可以看出：
 
@@ -319,7 +319,7 @@ df_multi.columns.values
 
 pandas提供了如何获取某一层级的索引的方法,该方法的定义如下：
 
-![](3.png)
+![](8.png)
 
 也就是说 df_multi.index.get_level_values() 是一个方法，用于从具有多重索引（MultiIndex）的数据框的索引中提取特定级别的值。`get_level_values()` 需要一个参数，即你要提取的级别（level）的名称或编号，返回的是一个包含该级别所有值的序列,以上面的 df_multi 为例，比如：
 

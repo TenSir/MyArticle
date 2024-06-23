@@ -1,4 +1,4 @@
-# Pandas基础教程三_DataFrame数据结构
+# Pandas数据分析(三)_DataFrame数据结构
 
 大家好，这里是**【Python机器学习算法实践】**，在之前的基础知识中有提及到Pandas中有两个重要的数据结构，Series和DataFrame。也使用一些篇幅着重介绍了Series的基础知识，希望跟着学习的小伙伴好好复习一下知识点，本次推文我们一起来学习一下DataFrame的相关知识。
 
