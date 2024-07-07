@@ -157,7 +157,7 @@ swaplevel_df
 
 
 
-## 2.1 reorder_levels 方法
+## 2.2 reorder_levels 方法
 
 reorder_levels 方法定义如下：
 
