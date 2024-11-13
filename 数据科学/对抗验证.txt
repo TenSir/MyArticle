@@ -1,1 +1,5 @@
 https://ilias-ant.github.io/blog/adversarial-validation/
+
+https://ing-bank.github.io/probatus/tutorials/nb_sample_similarity.html
+
+https://www.kaggle.com/datasets/sumansharmadataworld/depression-surveydataset-for-analysis

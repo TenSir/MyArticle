@@ -1,0 +1,11 @@
+https://zhuanlan.zhihu.com/p/713742187
+https://aeyoo.net/2020/03/26/sklearn-roc-auc-score%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/
+https://zhuanlan.zhihu.com/p/404453388
+https://mp.weixin.qq.com/s/NirGQ-Z2rAvupzRc-eiJdw
+https://en.wikipedia.org/wiki/Receiver_operating_characteristic
+https://www.zhihu.com/question/39840928
+https://tracholar.github.io/machine-learning/2018/01/26/auc.html
+https://laurenoakdenrayner.com/2018/01/07/the-philosophical-argument-for-using-roc-curves/
+https://www.zhihu.com/question/291224248/answer/760402783
+https://zhuanlan.zhihu.com/p/79698237
+https://www.cnblogs.com/dlml/p/4403482.html
