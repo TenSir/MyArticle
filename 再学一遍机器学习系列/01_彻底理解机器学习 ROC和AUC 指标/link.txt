@@ -9,3 +9,6 @@ https://laurenoakdenrayner.com/2018/01/07/the-philosophical-argument-for-using-r
 https://www.zhihu.com/question/291224248/answer/760402783
 https://zhuanlan.zhihu.com/p/79698237
 https://www.cnblogs.com/dlml/p/4403482.html
+
+
+auc的实现：https://zhuanlan.zhihu.com/p/468262386

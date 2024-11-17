@@ -24,7 +24,7 @@
 
 **（5）AUC **： ROC曲线下面积（Area Under the Receiver Operating Characteristic Curve）（AUC-ROC）： 适用于二分类问题，ROC曲线是以真正例率（True Positive Rate，召回率）为纵轴Y、假正例率（False Positive Rate）为横轴X的曲线，**AUC-ROC是ROC曲线下的面积。一般来说，AUC 值范围从 0 到 1，值越大表示模型性能越好。**
 
-首先F1，accuracy这类的评价指标是单点评价，而AUC考虑到了全部阈值下的性能，因此在样本不平衡的情况下，也能进行较为合理的评价，所以AUC被发明出来了。AUC衡量的是模型的排序能力，我们越好地分离我们的样本（我们的模型训练得越好），AUC 就会越高。
+首先F1，accuracy这类的评价指标是单点评价，但它更关注模型在不同阈值下的精确率和召回率。而AUC考虑到了全部阈值下的性能，因此在样本不平衡的情况下，也能进行较为合理的评价，所以AUC被发明出来了。AUC衡量的是模型的排序能力，我们越好地分离我们的样本（我们的模型训练得越好），AUC 就会越高。
 
 
 
@@ -343,6 +343,8 @@ FPR = 1/(1+6) = 1/7
 
 ## 9. ROC曲线如何判断算法的优劣
 
+在实际的工程中我们希望分类器达到的效果是：对于真实类别为1的样本，分类器预测为1的概率（即TPRate），要大于真实类别为0而预测类别为1的概率（即FPRate）。
+
 ROC曲线来判断算法的好坏就很简单了，直接看ROC曲线下的面积（AUC的大小）的大小就可以判定模型的好坏。
 
 <img src="17.png" alt="image-20241107153041551" style="zoom:50%;" />
@@ -527,29 +529,235 @@ print(metrics.auc(fpr, tpr))
 
 <img src="fig-3.gif" alt="image-20241107153041551" style="zoom:100%;" />
 
-首先这里的不敏感，并不是说我们在训练模型的时候改变正负样本的比例，训练后的模型在测试集上的AUC是不变的。而是说是在 Test 数据集上做随机采样，AUC是不敏感的。
+首先这里的不敏感，并不是说我们在训练模型的时候改变正负样本的比例，训练后的模型在测试集上的AUC是不变的。而是说是在样本正负比例不均衡的时候，当我们使用下采样对负样本进行数据采样来训练模型之后，如果在Test 数据集上的负样本也作相应的负采样，那么基于负样本采样的数据集计算出来的AUC和未进行采样的测试集计算出来的AUC基本一致，AUC是不敏感的。
 
-假设我们在训练模型的时候正负样本的比例为1:1000，因此在训练模型的时候通常要对负样本进行下采样的操作，基于采样的数据集进行模型的训练，当模型训练完成以后进行预测，此时对测试集也进行负样本采样。那么基于负样本采样的数据集计算出来的AUC和未进行采样的测试集计算出来的AUC基本一致。
-
-这该怎么理解呢？我们不妨假设采样前负样本里面得分小于s+s_+s_+的样本占比为。。。。。
+这该怎么理解呢？参考资料【6】给出了解释： 如果采样是随机的，对于给定的正样本，假定得分为 s+，那么得分小于s+的负样本比例不会因为采样而改变！ 例如，假设采样前负样本里面得分小于s+的样本占比为70%，如果采样是均匀的，即大于s+的负样本和小于s+的负样本留下的概率是相同的，那么显然采样后这个比例仍然是70%！ **这表明，该正样本得分大于选取的负样本的概率不会因为采样而改变，因此，AUC也不变！**
 
 
 
-在训练模型的时候，如果正负比例差异比较大，例如正负比例为1:1000，训练模型的时候通常要对负样本进行下采样。当一个模型训练完了之后，用负样本下采样后的测试集计算出来的AUC和未采样的测试集计算的AUC基本一致。 如果采样是随机的，对于给定的正样本，假定得分为 s+s_+s_+ ，那么得分小于s+s_+s_+的负样本比例不会因为采样而改变！ 例如，假设采样前负样本里面得分小于s+s_+s_+的样本占比为70%，如果采样是均匀的，即大于s+s_+s_+的负样本和小于s+s_+s_+的负样本留下的概率是相同的，那么显然采样后这个比例仍然是70%！ 这表明，该正样本得分大于选取的负样本的概率不会因为采样而改变，也就是 y(t)dx(t)y(t) d x(t)y(t) d x(t) 是不变的，因此，AUC也不变！
+**笔者这里的想法也和大家分享一下：**
 
-相比于其他评估指标，例如准确率、召回率和F1值，负样本下采样相当于只将一部分真实的负例排除掉了，然而模型并不能准确地识别出这些负例，所以用下采样后的样本来评估会高估准确率；因为采样只对负样本采样，正样本都在，所以采样对召回率并没什么影响。这两者结合起来，最终导致高估F1值！
+AUC 的核心思想是评估 **正样本的预测概率排在负样本概率前面的概率**。
 
-
-
-维基百科中对AUC的意义进行了详细的解释：
-
-https://en.wikipedia.org/wiki/Receiver_operating_characteristic
+- ROC 曲线不依赖具体样本数量，而是基于样本的排序关系来绘制。
+- 因此，只要正负样本的概率分布（分数排序）保持不变，无论正负样本的绝对数量如何变化，AUC 的值都会保持不变。
+- **如果定向移除高分正样本（或者低样本）正样本的高分部分减少，排序关系被破坏，AUC 可能显著下降。**
 
 
 
-其中使用数学公式来从概率的角度阐明了他的意义：
+举一个例子，假设模型给出的预测分数如下：
+
+- 正样本（实际值为1）：0.9, 0.8, 0.7
+- 负样本（实际值为0）：0.6, 0.5,0.4,0.3
+
+AUC 的计算只看正样本的分数是否高于负样本：
+
+- 0.9 > 0.6，0.9 > 0.5，0.9 > 0.4, 0.9 > 0.3
+- 0.8 > 0.6，0.8 > 0.5，0.8 > 0.4, 0.8 > 0.3
+- 0.7 > 0.6，0.7 > 0.5，0.7 > 0.4, 0.7 > 0.3
+
+所有正样本都排在负样本之前，因此 AUC = 1.0, 即使将负样本采样为：0.6, 0.5（减少负样本比例），正样本与负样本之间的排序关系仍然未改变，AUC值依然是1.0。
+
+这对于AUC是不变的，而对于其他评估指标，例如准确率、召回率和F1值，负样本下采样相当于只将一部分真实的负例排除掉了，然而模型并不能准确地识别出这些负例，所以用下采样后的样本来评估会高估准确率；因为采样只对负样本采样，正样本都在，所以采样对召回率并没什么影响。
 
 
+
+这里也有一个实现（copy来）也说明了其不敏感性：
+
+<img src="26.png" alt="image-20241107153041551" style="zoom:50%;" />
+
+当正负样本的分布发生变化时，ROC曲线的形状，能够基本保持不变，而P-R曲线的形状一般会发生较剧烈的变化。
+
+(a)和(b)展示的是分类其在原始测试集(正负样本分布平衡)的结果。
+
+(c)(d)是将测试集中负样本的数量增加到原来的10倍后，分类器的结果。
+
+可以明显的看出，ROC曲线基本保持原貌，而Precision-Recall曲线变化较大。
+
+
+
+## 12. AUC统计意义的推导
+
+AUC 等于 随机选择一对正负样本，分类器对正样本的打分高于负样本的概率，即：
+$$
+AUC = P(X_1>X_0)
+$$
+其中:
+(1) $$X_1$$ 和 $$X_0$$分别代表正样本和负样本对应的模型预测得分。
+
+(2) $$P(X_1>X_0)$$ 表示随机选择一个正样本和一个负样本，正样本得分高于负样本得分的概率。
+
+
+
+接下来我们开始证明，假设：
+
+- **正样本预测得分的概率密度函数为 $$f(s)$$**。
+- **负样本预测得分的概率密度函数为 $$g(s)$$**。
+- **$$TPR(t)$$ 和 $$FPR(t)$$ 是 ROC 曲线的两个坐标点，分别是真正率和假正率，都是阈值 t 的函数。**
+
+TPR 是纵轴，FPR 是横轴，AUC 的定义为 ROC 曲线下的面积, 因此：
+$$
+AUC=\int_{0}^{1}TPR(FPR(t))dFPR(t)
+$$
+**逻辑解释**
+
+- $$TPR(FPR(t)) $$ 是在某个阈值 t 下，TPR 对应的值（纵轴值），表示捕获正样本的能力。
+- $$dFPR(t) $$是对应的 FPR 的变化量，表示模型对负样本错误分类的微小增量，也就是横轴变化（可参考周志华老师的增量法描述）。
+- 积分通过累加 $$TPR×dFPR$$计算 ROC 曲线的面积。
+
+上述公式中，$$TPR(t)$$ 为真正率，因此有：
+$$
+TPR(t)= \int_{t}^{+∞}f(s)ds
+$$
+上述公式中，$$FPR(t)$$ 为假正率，因此有：
+$$
+FPR(t)= \int_{t}^{+∞}g(s)ds
+$$
+显然，$$FPR(t) $$对 $$t$$ 的微分为：
+$$
+dFPR(t)=−g(t)dt
+$$
+带入AUC的计算公式得：
+$$
+AUC=\int_{−∞}^{+∞}TPR(t)⋅g(t)dt
+$$
+将$$ TPR(t)=\int_{t}^{+\infty}f(s)ds$$代入：
+
+
+$$
+AUC=\int_{−∞}^{+∞}(\int_{t}^{+∞}f(s)ds)⋅g(t)dt
+$$
+将双重积分的顺序交换（注意积分范围）：
+$$
+AUC=\int_{−∞}^{+∞}\int_{−∞}^{s}g(t)⋅f(s)dtds
+$$
+外层积分 $$\int_{−∞}^{+∞}f(s)ds$$ 遍历正样本的得分 $$s$$。
+
+内层积分 $$\int_{−∞}^{s}g(t)dt $$ 遍历负样本的得分 $$t$$，且 $$t < s$$。
+
+在内部积分中，$$f(s)$$ 是与 $$t$$ 无关的常数，可以提到外部：
+$$
+AUC=\int_{−∞}^{+∞}f(s)(\int_{−∞}^{s}g(t)dt)ds
+$$
+
+
+内层积分$$\int_{−∞}^{s}g(t)dt $$ 表示负样本得分 $$t$$ 小于正样本得分 $$ s$$ 的概率：
+$$
+\int_{-\infty}^{s} g(t) dt = P(X_0 < s)
+$$
+于是，AUC 可以表示为：
+$$
+AUC=\int_{-\infty}^{+\infty} P(X_0 < s) \cdot f(s) ds
+$$
+进一步等价于：
+$$
+AUC=P(X1>X0)
+$$
+也就是说随机取一对正负样本，正样本得分大于负样本的概率。
+
+
+
+## 13. AUC的代码实现
+
+根据AUC的实现方法，我们对应的有多种实现方法，一个个来看一下。
+
+### 13.1 ROC曲线法
+
+就这方法就是求ROC曲线的面积，我们在计算的过程中也同时与scikit-learn中的实现代码进行对比，实现如下：
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def calculate_roc_auc(y_true, y_scores):
+    # 转换为numpy数组
+    y_true = np.array(y_true)
+    y_scores = np.array(y_scores)
+    
+    # 按预测得分降序排序
+    sorted_indices = np.argsort(-y_scores)
+    y_true_sorted = y_true[sorted_indices]
+    y_scores_sorted = y_scores[sorted_indices]
+    
+    # 计算累积的真阳性和假阳性
+    tp = np.cumsum(y_true_sorted)
+    fp = np.cumsum(1 - y_true_sorted)
+    
+    # 计算总的正样本和负样本数
+    total_pos = np.sum(y_true_sorted)
+    total_neg = len(y_true_sorted) - total_pos
+    
+    # 计算TPR和FPR,处理边界情况,防止除0
+    tpr = tp / total_pos if total_pos != 0 else np.zeros_like(tp)
+    fpr = fp / total_neg if total_neg != 0 else np.zeros_like(fp)
+    
+    # 在曲线起点添加(0,0)
+    tpr = np.concatenate([[0], tpr])
+    fpr = np.concatenate([[0], fpr])
+    
+    # 计算AUC，使用trapz函数实现
+    auc = np.trapz(tpr, fpr)
+    
+    # 绘制ROC曲线
+    plt.figure()
+    plt.plot(fpr, tpr, marker='.', label=f'AUC = {auc:.3f}')
+    plt.plot([0, 1], [0, 1], linestyle='--', color='gray')  # 随机猜测的对角线
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('ROC Curve')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+    
+    return auc
+
+# 示例用法
+if __name__ == "__main__":
+    y_true    = np.array([1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0])
+    y_scores = np.array([0.9, 0.8, 0.7, 0.6, 0.55, 0.54, 0.53, 0.52, 0.51, 0.505,0.4, 0.39, 0.38, 0.37, 0.36, 0.35, 0.34, 0.33, 0.3, 0.1])
+    
+        
+    auc_value = calculate_roc_auc(y_true, y_scores)
+    print(f"AUC: {auc_value:.3f}")
+```
+
+
+
+
+
+
+
+
+
+```python
+import numpy as np
+from sklearn.metrics import roc_curve
+from sklearn.metrics import auc
+
+# n_bins 一种分桶策略，后面进行说明
+def auc_roc_calculate(labels,preds,n_bins=100):
+    #正样本数量，预测标签为1的
+    postive_len = sum(labels)   
+    #负样本数量，预测标签为0的
+    negative_len = len(labels) - postive_len 
+    #正负样本对
+    total_case = postive_len * negative_len 
+    pos_histogram = [0 for _ in range(n_bins)] 
+    neg_histogram = [0 for _ in range(n_bins)]
+    bin_width = 1.0 / n_bins
+    for i in range(len(labels)):
+        nth_bin = int(preds[i]/bin_width)
+        if labels[i]==1:
+            pos_histogram[nth_bin] += 1
+        else:
+            neg_histogram[nth_bin] += 1
+    accumulated_neg = 0
+    satisfied_pair = 0
+    for i in range(n_bins):
+        satisfied_pair += (pos_histogram[i]*accumulated_neg + pos_histogram[i]*neg_histogram[i]*0.5)
+        accumulated_neg += neg_histogram[i]
+    return satisfied_pair / float(total_case)
+```
 
 
 
@@ -598,6 +806,20 @@ AUC仅关注所有样本中模型的排序能力，但是个性化推荐中，�
 
 - 可能不适用于极度不平衡的数据：在极度不平衡的数据集上，AUC 可能无法准确反映模型的性能，需要结合其他评估指标使用。
 - 解释复杂：对于非专业人士来说，AUC 的解释和理解可能比较困难。
+
+
+
+ AUC 指标优缺点
+AUC 指标的优点：
+
+ROC 曲线具有不随样本比例而改变的良好性质，因此能够在样本比例不平衡的情况下较好地反映出分类器的优劣，AUC 作为 ROC 曲线下面积，也继承了对 ROC 这一优势。
+AUC 继承了 ROC 曲线评估指标无需手动设定阈值的优良特性，直接从整体上（离线排序）方面衡量算法的表现。
+AUC计算主要与排序有关，所以他对排序敏感，而对预测分数绝对值没那么敏感，对相对值敏感。
+AUC指标的不足之处：
+
+只反映了模型的整体性能，看不出在不同点击率区间上的误差情况；
+只反映了排序能力，关注的是概率值的相对大小，与阈值和概率值的绝对大小没有关系，没有反映预测精度；（简单说，如果对一个模型的点击率统一乘以2，AUC不会变化，但显然模型预测的值和真实值之间的offset扩大了。）
+AUC只关注正负样本之间的排序，并不关心正样本内部，或者负样本内部的排序。这也体现了AUC的本质：任意个正样本的概率都大于负样本的概率的能力。
 
 
 
@@ -655,6 +877,19 @@ ROC 曲线展示了模型在不同阈值下的性能表现，需要根据具体�
 
 
 
+AUC计算逻辑不足与改进
+AUC计算是基于模型对全集样本的的排序能力，而真实线上场景，往往只考虑一个用户一个session下的排序关系。这里的gap往往导致一些问题。正如参考[3]中的举例的几个case，比较典型。主要包括两点：
+
+线上会出现新样本，在线下没有见过，造成AUC不足。这部分更多是采用online learning的方式去缓解，AUC本身可改进的不多。
+线上的排序发生在一个用户的session下，而线下计算全集AUC，即把user1点击的正样本排序高于user2未点击的负样本是没有实际意义的，但线下auc计算的时候考虑了它。
+阿里在论文：Deep Interest Network for Click-Through Rate Prediction中提出了group auc来处理上述问题。公式如下：
+
+
+
+
+
+文章中有什么不对之处，还请大家指正，谢谢！
+
 ##  参考
 
 （1）https://ccrma.stanford.edu/workshops/mir2009/references/ROCintro.pdf
@@ -666,3 +901,5 @@ ROC 曲线展示了模型在不同阈值下的性能表现，需要根据具体�
 （4）https://laurenoakdenrayner.com/2018/01/07/the-philosophical-argument-for-using-roc-curves
 
 （5）https://en.wikipedia.org/wiki/Receiver_operating_characteristic
+
+（6）https://tracholar.github.io/machine-learning/2018/01/26/auc.html
