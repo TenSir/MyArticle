@@ -4,25 +4,25 @@
 
 ## 1.引言
 
-在机器学习领域，评估分类模型的性能是一个至关重要的步骤。其中，ROC（Receiver Operating Characteristic）曲线和AUC（Area Under the Curve）指标是衡量模型性能的两个常用工具。本文将深入探讨ROC和AUC的概念、计算方法、绘制方法以及它们在实际应用中的意义。
+在数据科学和机器学习领域，评估分类模型的性能是一个至关重要的步骤，这能保证模型在上线之后有一个较长的“稳定期”其中。而在评估模型效果的时候，ROC（Receiver Operating Characteristic）曲线和AUC（Area Under the Curve）指标是衡量模型性能的两个常用工具。本文将深入探讨ROC和AUC的概念、计算方法、绘制方法、代码实现以及它们在实际应用中的意义。
 
-这个知识点在面试中也很频繁的出现，在面试官提出这个问题的时候，我们有时候真的答的不好，因此有必要来详细解释一下。
+这个知识点在面试中也很频繁的出现，在面试官提出这个问题的时候，我们有时候真的回答得不好，因此有必要来详细探讨一下。
 
 
 
 ## 2. 基础概念介绍
 
-在机器学习中有好很多的用于评价分类器(假设是分类任务)的性能的指标，比如我们常见的：
+在机器学习中有好很多的用于评价分类器(假设是分类任务)性能的指标，比如我们常见的：
 
-**（1）准确性（Accuracy）**： 准确性是最常见的分类任务评价指标，表示模型正确预测的样本数占总样本数的比例。但在某些不平衡类别的情况下，准确性作为一个衡量指标的效果并不是很好。
+**（1）准确性（Accuracy）**： 准确性是最常见的分类任务评价指标，表示模型正确预测的样本数占总样本数的比例。但在某些不平衡类别的情况下，准确性作为一个衡量指标的效果并不是很好。比如在类别不平衡的情况下正负样本比例为9999:1，假设一个模型为“所有样本”都是正例，则accuracy=9999/10000 = 99.99%，而实际上这个模型啥也没有学会。
 
-**（2）精确度（Precision）** ： 精确度是指在所有被模型预测为正例的样本中，实际为正例的比例。精确度关注的是模型预测为正例的准确性，并不关心模型预测为负例的程度。
+**（2）精确度（Precision）**：精确度是指在所有被模型预测为正例的样本中，实际为正例的比例。精确度关注的是模型预测为正例的准确性，并不关心模型预测为负例的程度。
 
-**（3）召回率（Recall）**： 召回率是指在所有实际为正例的样本中，被模型正确预测为正例的比例。召回率关注的是模型对正例的覆盖程度。
+**（3）召回率（Recall）**：召回率是指在所有实际为正例的样本中，被模型正确预测为正例的比例。召回率关注的是模型对正例的覆盖程度。比如说你喜欢大学里的10个女生（可怕），然后我构建一个“渣男”模型，这个模型找出了其中的2个，那么这个模型的召回率就是0.2。另外重大疾病和风险的判断更加注重召回率。
 
-**（4）F1分数（F1- Score）** ： F1分数是精确度和召回率的调和平均值，综合考虑了模型的准确性和覆盖率。F1分数在不同类别不平衡的情况下比准确性更具意义。
+**（4）F1分数（F1- Score）** ：F1分数是精确度和召回率的调和平均值，综合考虑了模型的准确性和覆盖率。F1分数在不同类别不平衡的情况下比准确性更具意义。
 
-**（5）AUC **： ROC曲线下面积（Area Under the Receiver Operating Characteristic Curve）（AUC-ROC）： 适用于二分类问题，ROC曲线是以真正例率（True Positive Rate，召回率）为纵轴Y、假正例率（False Positive Rate）为横轴X的曲线，**AUC-ROC是ROC曲线下的面积。一般来说，AUC 值范围从 0 到 1，值越大表示模型性能越好。**
+**（5）AUC **：ROC曲线下面积（Area Under the Receiver Operating Characteristic Curve）（AUC-ROC）： 适用于二分类问题，ROC曲线是以真正例率（True Positive Rate，召回率）为纵轴Y、假正例率（False Positive Rate）为横轴X的曲线，**AUC-ROC是ROC曲线下的面积。一般来说，AUC 值范围从 0 到 1，值越大表示模型性能越好。**
 
 首先F1，accuracy这类的评价指标是单点评价，但它更关注模型在不同阈值下的精确率和召回率。而AUC考虑到了全部阈值下的性能，因此在样本不平衡的情况下，也能进行较为合理的评价，所以AUC被发明出来了。AUC衡量的是模型的排序能力，我们越好地分离我们的样本（我们的模型训练得越好），AUC 就会越高。
 
@@ -107,7 +107,7 @@ N: Negative
 
 2. 第二个字母P（positive）或者N（negative），表示分类器的预测结果，P就是预测为正例，N就是预测为负例；
 
-例如，TP，就是预测为正例，并且预测对了。（样本为正例实际分类器也预测为正例）
+例如，TP：就是预测为正例，并且预测对了。（样本为正例实际分类器也预测为正例）
 
 
 
@@ -152,39 +152,31 @@ P_R曲线的绘制相对来说简单一些，只要就是计算出查准率和�
 （好瓜，0.6）
 （坏瓜，0.5）
 
-（1）首先我们将截断点设置为最大值1,5个样本中的预测概率没有≥1的，因此全部预测为坏瓜（没有好瓜），此时的confusion_matrix如下：
-
-<img src="3.png" alt="image-20241107153041551" style="zoom:50%;" />
-
-此时，**对应的查准率P=0，查全率R=3/(3+0)=1。**
-
-**在此之后我们将截断点设置为每一个样例的预测值。**
-
-（2）接着我们将截断点设置为最大值0.9,5个样本中的预测概率有≥0.9的，只有第一个瓜会被预测成为好瓜，此时的confusion_matrix如下：
+（1）**我们将截断点设置为每一个样例的预测值。**首先我们将截断点设置为最大值0.9,5个样本中的预测概率有≥0.9的，只有第一个瓜会被预测成为好瓜，此时的confusion_matrix如下：
 
 <img src="4.png" alt="image-20241107153041551" style="zoom:50%;" />
 
 此时，**对应的查准率P=1/(1+0)=1，查全率R=1/(1+2)=1/3。**
 
-（3）接着我们将截断点设置为最大值0.8,5个样本中的预测概率有≥0.8的，第一、二个瓜都会被预测成为好瓜，此时的confusion_matrix如下：
+（2）接着我们将截断点设置为最大值0.8,5个样本中的预测概率有≥0.8的，第一、二个瓜都会被预测成为好瓜，此时的confusion_matrix如下：
 
 <img src="5.png" alt="image-20241107153041551" style="zoom:50%;" />
 
 此时，**对应的查准率P=2/(2+0)=1，查全率R=2/(2+1)=2/3。**
 
-（4）接着我们将截断点设置为最大值0.7,5个样本中的预测概率有≥0.7的，第一、二、三个瓜都会被预测成为好瓜，此时的confusion_matrix如下：
+（3）接着我们将截断点设置为最大值0.7,5个样本中的预测概率有≥0.7的，第一、二、三个瓜都会被预测成为好瓜，此时的confusion_matrix如下：
 
 <img src="6.png" alt="image-20241107153041551" style="zoom:50%;" />
 
 此时，**对应的查准率P=2/(2+1)=2/3，查全率R=2/(2+1)=2/3。**
 
-（5）接着我们将截断点设置为最大值0.6,5个样本中的预测概率有≥0.6的，第一、二、三、四个瓜预测为好瓜，此时的confusion_matrix如下：
+（4）接着我们将截断点设置为最大值0.6,5个样本中的预测概率有≥0.6的，第一、二、三、四个瓜预测为好瓜，此时的confusion_matrix如下：
 
 <img src="7.png" alt="image-20241107153041551" style="zoom:50%;" />
 
 此时，**对应的查准率P=3/(3+1)=3/4，查全率R=3/(3+0)=1。**
 
-（6）接着我们将截断点设置为最大值0.5,5个样本中的预测概率有≥0.6的，全部瓜都会被预测成为好瓜都会被预测成为好瓜，此时的confusion_matrix如下：
+（5）接着我们将截断点设置为最大值0.5,5个样本中的预测概率有≥0.6的，全部瓜都会被预测成为好瓜都会被预测成为好瓜，此时的confusion_matrix如下：
 
 <img src="8.png" alt="image-20241107153041551" style="zoom:50%;" />
 
@@ -192,13 +184,54 @@ P_R曲线的绘制相对来说简单一些，只要就是计算出查准率和�
 
 我们将上述的（P,R）点对进行绘图，然后用直线段相连，得到如下图：
 
-<img src="9.png" alt="image-20241107153041551" style="zoom:50%;" />
+<img src="9-1.png" alt="image-20241107153041551" style="zoom:50%;" />
 
 这样我们就完成了PR图的绘制。一般来说，P-R曲线的整体呈下降趋势，一般来说，如果一个学习器的P-R曲线被另一个学习器的P-R曲线完全包住了，那么就意味着后者的性能优于前者，毕竟查准率还是在查全率都优于前者，效果上肯定更好。
 
+可以看出P-R曲线从左上角（0,1）到右下角（1,0）：
+
+- 一开始的第一个样本，其最有可能是正例（排序后概率值最大），其他样本均预测为负例，此时查准率最高接近1；查全率很低，很多正例没有预测到。
+- 快结束时所有的样本都预测为正例，此时查准率很低，大量的负例被预测为正例；查全率很高接近1，正例都被查询到。
+
+我们也可以基于sklearn的方法来画出PR曲线，我们的代码可以写成如下所示的样子：
 
 
-比如下述的模型构建的之后的P-R曲线的结果如下：
+
+```python
+import numpy as np
+from sklearn.metrics import precision_recall_curve,average_precision_score
+import matplotlib.pylab as plt
+
+y_test = np.array([1, 1, 0, 1, 0])
+y_pred_proba = np.array([0.9, 0.8, 0.7, 0.6, 0.5])
+
+# 计算Precision 和Recall
+precision,recall,thresholds = precision_recall_curve(y_test,y_pred_proba)
+
+print(precision)
+print(recall)
+print(thresholds)
+
+# 计算平均精确率
+average_precision = average_precision_score(y_test,y_pred_proba)
+print(f"Average precision:{average_precision:.2f}")
+
+# 绘制P-R曲线
+plt.figure()
+plt.plot(recall, precision, marker='o', color='blue',label=f'PR = {average_precision:.3f}')
+# plt.plot([0, 1], [0, 1], linestyle='--', color='gray')  # 随机猜测的对角线
+plt.xlabel('recall')
+plt.ylabel('precision')
+plt.title('Precision-Recall Curve')
+plt.legend()
+plt.show()
+```
+
+P-R曲线的结果与我们手动绘制的结果是一致的。
+
+<img src="9-2.png" alt="image-20241107153041551" style="zoom:50%;" />
+
+另外，比如下述的模型构建的之后的P-R曲线的结果如下：
 
 ```python
 import numpy as np
@@ -724,6 +757,64 @@ if __name__ == "__main__":
 
 
 
+
+1. **计算所有可能的阈值**：这些阈值是`pred`数组中的唯一值。
+2. **对每个阈值计算真正率（TPR）和假正率（FPR）**。
+3. **根据阈值对TPR和FPR进行排序**：得到ROC曲线上的点。
+4. **绘制ROC曲线**：使用matplotlib绘制FPR对TPR的曲线。
+5. **使用梯形法则计算ROC曲线下的面积**：这就是AUC值
+
+```python
+import matplotlib.pyplot as plt
+
+# 重新计算AUC，并准备绘制ROC曲线
+
+# 初始化ROC曲线上的点
+tpr_list = [0]
+fpr_list = [0]
+
+# 计算每个阈值的TPR和FPR
+for threshold in thresholds:
+    # 预测标签
+    pred_label = (pred >= threshold).astype(int)
+    
+    # 计算TP, FP, TN, FN
+    TP = np.sum((pred_label == 1) & (y == 1))
+    FP = np.sum((pred_label == 1) & (y == 0))
+    TN = np.sum((pred_label == 0) & (y == 0))
+    FN = np.sum((pred_label == 0) & (y == 1))
+
+    # 计算TPR和FPR
+    TPR = TP / (TP + FN) if (TP + FN) != 0 else 0
+    FPR = FP / (FP + TN) if (FP + TN) != 0 else 0
+
+    # 添加到列表中
+    tpr_list.append(TPR)
+    fpr_list.append(FPR)
+
+# 添加ROC曲线的终点
+tpr_list.append(1)
+fpr_list.append(1)
+
+# 使用梯形法则计算AUC
+auc = 0
+for i in range(1, len(fpr_list)):
+    auc += 0.5 * (fpr_list[i] - fpr_list[i-1]) * (tpr_list[i] + tpr_list[i-1])
+
+# 绘制ROC曲线
+plt.figure(figsize=(8, 6))
+plt.plot(fpr_list, tpr_list, color='blue', label=f'AUC = {auc:.6f}')
+plt.plot([0, 1], [0, 1], color='gray', linestyle='--')
+plt.xlabel('False Positive Rate')
+plt.ylabel('True Positive Rate')
+plt.title('ROC Curve')
+plt.legend(loc='lower right')
+plt.grid(True)
+plt.show()
+
+auc
+
+```
 
 
 
