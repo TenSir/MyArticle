@@ -1,0 +1,27 @@
+# df 写入数据库
+ 
+import io
+import pandas as pd
+from sqlalchemy import create_engine
+ 
+def write_to_table(df, table_name, if_exists='fail'):
+    db_engine = create_engine('postgresql://postgres:xxxxxx@XXXXX/***')# 初始化引擎
+    # db_engine = create_engine('postgresql://user:password@host/database')# 初始化引擎
+    string_data_io = io.StringIO()      # 内存缓冲粗进行读写操作
+    df.to_csv(string_data_io, sep='|', index=False)
+    pd_sql_engine = pd.io.sql.pandasSQL_builder(db_engine)
+    table = pd.io.sql.SQLTable(table_name, pd_sql_engine, frame=df,
+                               index=False, if_exists=if_exists,
+                               schema = '2019-3-11-particulars')
+    table.create()
+    string_data_io.seek(0)
+    string_data_io.readline()  # remove header
+    
+    # 连接数据库
+    with db_engine.connect() as connection:
+        with connection.connection.cursor() as cursor:  # 游标
+            copy_cmd = '''COPY "2019-3-11-particulars"."%s" FROM STDIN HEADER DELIMITER '|' CSV''' %table_name
+            # copy语句, 2019-3-11-particulars新数据库中的模式名
+            print(copy_cmd)
+            cursor.copy_expert(copy_cmd, string_data_io)     # 执行语句
+        connection.connection.commit()
